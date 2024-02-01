@@ -85,4 +85,8 @@ SELECT DISTINCT teachers.*, departments.name 'department_name' FROM teachers JOI
 ```
 SELECT students.*, courses.id 'course_id', courses.name 'course', COUNT(courses.id) 'exam_attempts', MAX(exam_student.vote) FROM students JOIN exam_student ON students.id = exam_student.student_id JOIN exams ON exams.id = exam_student.exam_id JOIN courses ON exams.course_id = courses.id GROUP BY students.surname, students.name, courses.id, exam_student.student_id;
 
+(con filtro voto 18)
+
+SELECT students.*, courses.id AS 'course_id', courses.name AS 'course', COUNT(courses.id) AS 'exam_attempts', MAX(exam_student.vote) FROM students JOIN exam_student ON students.id = exam_student.student_id JOIN exams ON exams.id = exam_student.exam_id JOIN courses ON exams.course_id = courses.id WHERE vote >= 18 GROUP BY students.surname, students.name, courses.id, exam_student.student_id;
+
 ```
